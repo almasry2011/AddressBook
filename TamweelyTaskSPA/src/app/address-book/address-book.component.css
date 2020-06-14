@@ -1,0 +1,14 @@
+.mat-form-field-appearance-legacy .mat-form-field-suffix .mat-datepicker-toggle-default-icon {
+    width: 2em !important;
+}
+input.form-control.form-control-sm {
+    width: 500px !important;
+    margin-right: 70px;
+}
+.row.row_Search {
+    padding-top: 20px;
+    margin-bottom: 5px;
+    border-bottom: solid #0089ff 2px;
+}
+
+ 

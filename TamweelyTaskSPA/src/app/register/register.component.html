@@ -1,0 +1,115 @@
+<div class="hold-transition register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="../../index2.html"><b>Admin</b>LTE</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+
+                <form [formGroup]="RegisterForm" (ngSubmit)="register()" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="username" name="username"
+                            placeholder="UserName">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+
+
+                        <div class="validation col-12" *ngIf="RegisterForm.controls.username.touched">
+
+                            <div *ngIf="RegisterForm.controls.username.hasError('required')">
+                                UserName Required
+                            </div>
+
+                            <div *ngIf="RegisterForm.controls.username.hasError('minlength')">
+                                Minlength Is 3
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" formControlName="Email" name="email" class="form-control"
+                            placeholder="Email">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                        <div class="validation col-12" *ngIf="RegisterForm.controls.Email.touched">
+
+                            <div *ngIf="RegisterForm.controls.Email.hasError('required')">
+                                Email Required
+                            </div>
+
+                            <div *ngIf="RegisterForm.controls.Email.hasError('email')">
+                                Email invalid
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" formControlName="password" class="form-control" name="password"
+                            placeholder="Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+
+                        <div class="validation col-12" *ngIf="RegisterForm.controls.password.touched">
+
+                            <div *ngIf="RegisterForm.controls.password.hasError('required')">
+                                Password Required
+                            </div>
+                            <div *ngIf="RegisterForm.controls.password.hasError('minlength')">
+                                Minlength Is 3
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" formControlName="Cpassword" class="form-control" name="confirm_password"
+                            placeholder="Retype password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+
+                        <div class="validation col-12" *ngIf="RegisterForm.controls.Cpassword.touched">
+
+                            <div *ngIf="RegisterForm.controls.Cpassword.hasError('required')">
+                                Password Required
+                            </div>
+
+                            <div *ngIf="RegisterForm.controls.Cpassword.value !=RegisterForm.controls.password.value ">
+                                Password Not Match
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-4">
+                            <button type="submit" [disabled]="RegisterForm.invalid"
+                                class="btn btn-primary btn-block">Register</button>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <a [routerLink]="['/login']" routerLinkActive="router-link-active" class="text-center">I already have a
+                    membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+
+</div>

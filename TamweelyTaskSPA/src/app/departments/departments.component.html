@@ -1,0 +1,41 @@
+<button (click)="Add()" type="button" class="btn btn-outline-primary float-right">
+    <i class="fas fa-plus"></i>
+</button>
+
+<div class=" ">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" style="text-align: center;"
+        class="table table-hover table-bordered w-50 ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th> Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dep of Departments">
+                <td>{{ dep.id }}</td>
+                <td>{{ dep.departmentName }}</td>
+                <td>
+
+
+                    <div class="btn-group mt-2" role="group">
+
+                        <button type="button" class="btn btn-outline-primary" (click)="Edit( dep)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button (click)="Delete( dep.id)" type="button" class="btn btn-outline-danger">
+                            <i class="fa fa-trash-alt"></i>
+                        </button>
+                    </div>
+
+
+
+
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

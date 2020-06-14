@@ -1,0 +1,113 @@
+<div class="row row_Search  ">
+
+    <div class=" _mat-animation-noopable d-md-flex mx-auto">
+
+
+
+        <div class="col-md-3 col-sm-12 mr-md-5">
+            <label for="dob" class="required">Start Date</label>
+
+            <mat-form-field color="accent">
+
+                <input [(ngModel)]="StartDate" class="form-control" matInput [matDatepicker]="pickerStart">
+                <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+                <mat-datepicker #pickerStart></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        <div class="col-md-3 col-sm-12 mr-md-5">
+            <label for="dob" class="required">End Date</label>
+
+            <mat-form-field color="accent">
+
+                <input [(ngModel)]="EndDate" class="form-control" matInput [matDatepicker]="pickerEnd">
+                <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+
+
+        <div class="col-md-2 m-md-auto">
+            <button (click)="Search()" class="btn btn-outline-primary">Search</button>
+        </div>
+        <div class="col-md-4 m-md-auto">
+
+            <button (click)="Add()" type="button" class="btn btn-outline-primary float-right"> Add New
+            </button>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+
+
+<div class="table-responsive">
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-hover   ">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Number</th>
+                <th>Dob</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Department </th>
+                <th>Job Title </th>
+
+                <th> Action</th>
+
+
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let addbook of AddressBooks">
+                <td>{{ addbook.id }}</td>
+                <td>
+
+                    <img style="width: 50px;height: 50px;border-radius: 12%;" [src]=" addbook.photo  "
+                        onerror="this.src='../assets/img/user2-160x160.jpg';" class="img-circle elevation-2">
+                </td>
+                <td>{{ addbook.fullName }}</td>
+                <td>{{ addbook.age }}</td>
+                <td>{{ addbook.phoneNumber }}</td>
+                <td>{{ addbook.dob }}</td>
+                <td>{{ addbook.address }}</td>
+                <td>{{ addbook.email }}</td>
+                <td>{{ addbook.departmentName }}</td>
+                <td>{{ addbook.titleName }}</td>
+
+                <td>
+
+
+                    <div class="btn-group mt-2" role="group">
+
+                        <button type="button" class="btn btn-outline-primary" (click)="Edit(addbook)">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button (click)="Delete(addbook.id)" type="button" class="btn btn-outline-danger">
+                            <i class="fa fa-trash-alt"></i>
+                        </button>
+                    </div>
+
+
+
+
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,34 @@
+<div class="main">
+    <div class="row">
+        <span mat-dialog-title>
+            Create New
+            <input type="button" class="btn cancelModalbtn" value="X" (click)="Cancel()" />
+        </span>
+    </div>
+    <div mat-dialog-content class=" ">
+        <form (submit)="onSubmit()">
+            <div class="CloseModatDiv">
+                <input type="number" [(ngModel)]="Id" name="id" hidden />
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <div class="form-group">
+                        <label for="Department" class="required">Department Name</label>
+                        <input [(ngModel)]="Name" class="form-control" type="text" placeholder="Enter Department Name"
+                            name="Department" id="Department" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3  mx-md-5">
+                    <input (click)="Cancel()" type="button" value="Cancel" class="btn btn-outline-secondary"
+                        name="cancel" />
+                </div>
+
+                <div class="col-2 ml-auto">
+                    <input type="submit" value="Submit" class="btn btn-outline-primary ml-auto" name="submit" />
+                </div>
+            </div>
+        </form>
+    </div>

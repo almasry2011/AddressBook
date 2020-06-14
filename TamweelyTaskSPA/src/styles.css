@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+ 
+.validation {
+    color: red;
+    display: block;
+}
+.mat-datepicker-content .mat-calendar {
+    width: auto !important;
+    height: auto !important;
+}
+.inpurErroe {
+    border: solid red 1px;
+}
+
+
+.cdk-overlay-pane {
+    position: absolute !important;
+ 
+    top: 63px;
+   
+}
+.cancelModalbtn {
+    background: #6959f500;
+    padding: 0px !important;
+    width: 20px!important;
+    height: 20px!important;
+    top: 6px;
+    /* width: fit-content; */
+    right: 22px;
+    position: absolute!important;
+    font-size: 14px;
+    color: #3e3ee6;
+}
+.text-muted {
+    color: #e60909!important;
+}
+
+
+div#DataTables_Table_0_info {
+    display: none !important;
+}
+
+.table td, .table th {
+    padding: .75rem;
+    vertical-align: middle !important;
+    border-top: 1px solid #dee2e6;
+}
+
+/* @media (min-width: 992px){
+.sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header {
+    margin-left: 0px !important;
+}
+} */
+
+@media (min-width: 768px){
+
+/*     
+body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header {
+    transition: margin-left .3s ease-in-out;
+     margin-left: 76px !important;
+}
+
+.sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .main-header {
+    margin-left: 250px !important;
+}
+ */
+
+.content-wrapper{
+    transition: margin-left .3s ease-in-out;
+    /* margin-left: 251px !important; 
+    padding-left: 253px !important;*/
+}
+
+
+
+
+ 
+body:not(.sidebar-mini-md) .content-wrapper, body:not(.sidebar-mini-md) .main-footer, body:not(.sidebar-mini-md) .main-header {
+    transition: margin-left .3s ease-in-out;
+    margin-left: 250px !important;
+}
+
+
+
+
+
+}
+
+
+
+ 

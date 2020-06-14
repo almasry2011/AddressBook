@@ -1,0 +1,12 @@
+@media (min-width: 1200px){
+.container {
+    max-width: 100%;
+}
+
+}
+
+@media (min-width: 992px){
+.sidebar-mini.sidebar-collapse,.content-wrapper  {
+    margin-left: 0px !important;
+}
+} 

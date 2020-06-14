@@ -1,0 +1,193 @@
+<div class="main">
+    <div class="row">
+        <span mat-dialog-title>
+            Edit - {{ AddressBooksForEdit.fullName}}
+            <input type="button" class="btn cancelModalbtn" value="X" (click)="Cancel()" />
+        </span>
+    </div>
+
+    <div mat-dialog-content class=" ">
+        <form [formGroup]="AddressBooksForm" (submit)="onSubmit()">
+            <div class="CloseModatDiv">
+
+                <input type="number" name="id" hidden formControlName="id" />
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-sm-12">
+
+                    <div class="form-group">
+                        <label for="fullName" class="required">Full Name</label>
+                        <input [ngClass]="{'inpurErroe':fullName.touched &&  fullName.errors}"
+                            formControlName="fullName" class="form-control" type="text" placeholder="Enter Full Name"
+                            name="fullName" id="fullName" />
+                        <span *ngIf="fullName.touched && fullName.errors">
+                            <small *ngIf="fullName.hasError('required')" class="form-text text-muted"> Name Is
+                                Required</small>
+                            <small *ngIf="fullName.hasError('minlength')" class="form-text text-muted">Name must be not
+                                less
+                                than 3 </small>
+                            <small *ngIf="fullName.hasError('maxlength')" class="form-text text-muted">Name must be less
+                                than 30.</small>
+                        </span>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input [ngClass]="{'inpurErroe': email.touched &&email.errors}" formControlName="email"
+                            class="form-control" type="text" placeholder="Enter Email" name="email" id="email" />
+                        <span *ngIf="email.touched && email.errors">
+                            <small *ngIf="email.hasError('required')" class="form-text text-muted"> email Is
+                                Required</small>
+                            <small *ngIf="email.hasError('email')" class="form-text text-muted">Please Enter Valide
+                                Email </small>
+
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-12">
+
+                    <div class="form-group">
+                        <label for="phoneNumber" class="required">Phone Number</label>
+                        <input [ngClass]="{'inpurErroe':phoneNumber.touched && phoneNumber.errors}"
+                            formControlName="phoneNumber" class="form-control" type="text"
+                            placeholder="Enter Phone Number" name="phoneNumber" id="phoneNumber" />
+                        <span *ngIf="phoneNumber.touched && phoneNumber.errors">
+                            <small *ngIf="phoneNumber.hasError('required')" class="form-text text-muted"> Number Is
+                                Required</small>
+                            <small *ngIf="phoneNumber.hasError('minlength')" class="form-text text-muted">Number must be
+                                not less
+                                than 10 </small>
+                            <small *ngIf="phoneNumber.hasError('maxlength')" class="form-text text-muted">Number must be
+                                less
+                                than 12.</small>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label for="Category" class="required">Department</label>
+                        <select [ngClass]="{'inpurErroe': departmentId.errors}" formControlName="departmentId"
+                            class="form-control">
+                            <option [value]="dep.id" *ngFor="let dep of Departments">{{dep.departmentName}}</option>
+
+                        </select>
+                        <span *ngIf="departmentId.touched && departmentId.errors">
+                            <small *ngIf="departmentId.hasError('min')" class="form-text text-muted">
+                                Required</small>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-md-4 col-sm-12">
+                    <div class="form-group">
+                        <label for="Title" class="required">Job Title</label>
+                        <select [ngClass]="{'inpurErroe': titleId.touched && titleId.errors}" formControlName="titleId"
+                            class="form-control">
+                            <option [value]="title.id" *ngFor="let title of Titles ">{{title.titleName}}</option>
+
+                        </select>
+                        <span *ngIf="titleId.touched && titleId.errors">
+                            <small *ngIf="titleId.hasError('min')" class="form-text text-muted">
+                                Required</small>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="row">
+
+                <div class="col-md-6 col-sm-12">
+
+                    <div class="form-group">
+                        <label for="dob" class="required">Date Of Birth</label>
+
+                        <mat-form-field color="accent">
+
+                            <input class="form-control" [ngClass]="{'inpurErroe': dob.touched && dob.errors}"
+                                formControlName="dob" matInput [matDatepicker]="picker1">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+
+
+                        <span *ngIf="dob.touched && dob.errors">
+                            <small *ngIf="dob.hasError('required')" class="form-text text-muted"> Date Of Birth Is
+                                Required</small>
+
+                        </span>
+                    </div>
+
+
+                </div>
+
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="address" class="required">Address</label>
+                        <input style="margin-top: 21px;" [ngClass]="{'inpurErroe': address.touched &&address.errors}"
+                            formControlName="address" class="form-control" type="text" placeholder="Enter address"
+                            name="address" id="address" />
+                        <span *ngIf="address.touched && address.errors">
+                            <small *ngIf="address.hasError('required')" class="form-text text-muted"> Address Is
+                                Required</small>
+
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-12">
+
+                    <div class="form-group">
+                        <label for="photo" class="required">photo</label>
+                        <input formControlName="photo" class="form-control" type="text" placeholder="Enter photo"
+                            name="photo" id="photo" />
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-3  mx-md-5">
+                    <input (click)="Cancel()" type="button" value="Cancel" class="btn btn-outline-secondary"
+                        name="cancel" />
+                </div>
+
+                <div class="col-2 ml-auto">
+                    <input type="submit" value="Submit" class="btn btn-outline-primary ml-auto" name="submit" />
+
+                </div>
+
+            </div>
+        </form>
+    </div>
